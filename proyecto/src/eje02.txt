@@ -1,0 +1,31 @@
+<?php
+
+
+ include('C:/Xammp/htdocs/proyecto/nusoap/lib/nusoap.php');
+
+
+
+
+   $cliente = new nusoap_client('http://www.dneonline.com/calculator.asmx?WSDL', true);
+   $cliente1 = new nusoap_client('https://www.dataaccess.com/webservicesserver/NumberConversion.wso?wsdl', true);
+
+   $parametros = array(
+                        'intA' => '5',
+                        'intB' => '2'
+   );
+
+   $parametros1 = array( 'dNum' => '110'); 
+
+   $result = $cliente-> call('Add', $parametros);
+   $result1 = $cliente-> call('Multiply', $parametros);
+   $result2 = $cliente-> call('Multiply', $parametros1  );
+
+   print_r("El resultado de la suma es  => ");
+   print_r($result);
+   echo '--------' . PHP_EOL;
+   print_r("El resultado de la muñtiplicacion es  => ");
+   print_r($result);
+   echo '--------';
+  
+
+?>
